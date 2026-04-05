@@ -32,7 +32,6 @@ const QUADRANT_COLORS = {
   NW: '#14b8a6',
   SE: '#f59e0b',
   SW: '#8b5cf6',
-  UNKNOWN: '#94a3b8',
   MAPPING_REQUIRED: '#ef4444',
 };
 
@@ -83,7 +82,7 @@ function formatPercent(value) {
 }
 
 function quadrantColor(quadrant) {
-  return QUADRANT_COLORS[quadrant] || QUADRANT_COLORS.UNKNOWN;
+  return QUADRANT_COLORS[quadrant] || QUADRANT_COLORS.MAPPING_REQUIRED;
 }
 
 export default function App() {
@@ -525,7 +524,7 @@ export default function App() {
                 In this dashboard it is best represented as support that can reinforce housing delivery across all quadrants and unmapped communities.
               </p>
               <div className="mt-4 grid grid-cols-5 gap-2">
-                {['NE', 'NW', 'SE', 'SW', 'UNKNOWN'].map((quadrant) => (
+                {['NE', 'NW', 'SE', 'SW', 'MAPPING_REQUIRED'].map((quadrant) => (
                   <div key={quadrant} className="rounded-md bg-emerald-100 px-2 py-3 text-center text-xs font-medium text-emerald-800">
                     {quadrant}
                   </div>
@@ -603,7 +602,7 @@ export default function App() {
                         <span className="text-xs text-slate-500">{item.justification}</span>
                       </div>
                       <div className="grid grid-cols-5 gap-2">
-                        {['NE', 'NW', 'SE', 'SW', 'UNKNOWN'].map((quadrant) => (
+                        {['NE', 'NW', 'SE', 'SW', 'MAPPING_REQUIRED'].map((quadrant) => (
                           <div key={`${item.plan}-${quadrant}`} className="rounded-md bg-emerald-100 px-2 py-2 text-center text-xs font-medium text-emerald-800">
                             {quadrant}
                           </div>
